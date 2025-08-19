@@ -1112,8 +1112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 1387614856}
   coinCount: 20
-  spawnAreaMin: {x: 5, y: 0, z: 5}
-  spawnAreaMax: {x: -5, y: 0, z: -5}
+  spawnAreaMin: {x: 3, y: 0, z: 3}
+  spawnAreaMax: {x: -3, y: 0, z: -3}
 --- !u!4 &733473506
 Transform:
   m_ObjectHideFlags: 0

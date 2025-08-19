@@ -8,7 +8,7 @@ public class CoinSpawner : MonoBehaviour
     public Vector3 spawnAreaMax;
     float yOffset = 0.5f;
 
-    private void Start()
+    private void Update()
     {
         SpawnCoins();
     }
@@ -21,13 +21,12 @@ public class CoinSpawner : MonoBehaviour
                 Random.Range(spawnAreaMin.x, spawnAreaMax.x),
                 Random.Range(spawnAreaMin.y, spawnAreaMax.y) + yOffset,
                 Random.Range(spawnAreaMin.z, spawnAreaMax.z)
-
             );
 
             Quaternion coinRotation = Quaternion.Euler(90f, 0f, 0f);
             Instantiate(coinPrefab, randomPosition, coinRotation);
+            Destroy(coinPrefab, Random.Range(2f, 5f));
 
         }
     }
-
 }

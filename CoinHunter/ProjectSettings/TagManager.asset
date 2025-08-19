@@ -6,6 +6,7 @@ TagManager:
   tags:
   - graound
   - Ground
+  - Coin
   layers:
   - Default
   - TransparentFX
