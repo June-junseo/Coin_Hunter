@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class CoinSpawner : MonoBehaviour
@@ -7,10 +8,17 @@ public class CoinSpawner : MonoBehaviour
     public Vector3 spawnAreaMin;  
     public Vector3 spawnAreaMax;
     float yOffset = 0.5f;
+    private float coinInterval = 2f;
+    private float timer;
 
     private void Update()
     {
-        SpawnCoins();
+        timer += Time.deltaTime;
+        if (timer >= coinInterval)
+        {
+            SpawnCoins();
+            timer = 0f;
+        }
     }
 
     private void SpawnCoins()
@@ -24,9 +32,9 @@ public class CoinSpawner : MonoBehaviour
             );
 
             Quaternion coinRotation = Quaternion.Euler(90f, 0f, 0f);
-            Instantiate(coinPrefab, randomPosition, coinRotation);
-            Destroy(coinPrefab, Random.Range(2f, 5f));
 
+            GameObject coin = Instantiate(coinPrefab, randomPosition, coinRotation); 
+            Destroy(coin, Random.Range(2f, 5f));
         }
     }
 }
